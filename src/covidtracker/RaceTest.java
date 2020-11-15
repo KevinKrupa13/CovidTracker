@@ -65,8 +65,7 @@ public class RaceTest extends student.TestCase {
         
         assertFalse(race.equals(nullRace));
         
-        assertFalse(race.equals(difClass));
-        
+        assertFalse(race.equals(difClass));    
     }
 
 
