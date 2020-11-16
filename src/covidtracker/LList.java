@@ -1,4 +1,4 @@
-package prj5;
+package covidtracker;
 
 public interface LList<E>
 {
