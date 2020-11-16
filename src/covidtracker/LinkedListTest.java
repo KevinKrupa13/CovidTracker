@@ -36,7 +36,30 @@ public class LinkedListTest extends TestCase {
         Iterator<String> iter = list.iterator();
         assertTrue(iter.hasNext());
     }
-
+    
+    /**
+     * tests set method
+     */
+    public void testSet() {
+        list.add("A");
+        list.add("B");
+        list.add("C");
+        list.set(1, "X");
+        assertEquals("X", list.get(1));
+    }
+    
+    /**
+     * test sort by alphabetical
+     */
+    public void testSortAlpha() {
+        list.add("Allan");
+        list.add("Stacy");
+        list.add("Collin");
+        list.add("Storm");
+        list.sortAlpha(list);
+        assertEquals("Collin", list.get(1));
+        assertEquals("{Allan, Collin, Stacy, Storm}", list.toString());
+    }
 
     /**
      * test hasNext false

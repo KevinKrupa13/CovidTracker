@@ -282,6 +282,26 @@ public class LinkedList<T> implements LList<T> {
 
 
     /**
+     * method to set an object at given position
+     * 
+     * @param index
+     *            position to set
+     * @param value
+     *            object to set
+     */
+    public void set(int index, T value) {
+        if (index < 0 || index >= size()) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        Node<T> current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        current.data = value;
+    }
+
+
+    /**
      * Checks if the list contains the given object
      *
      * @param obj
@@ -357,6 +377,30 @@ public class LinkedList<T> implements LList<T> {
         }
         result += "}";
         return result;
+    }
+
+
+    /**
+     * method to sort by alphabetical order
+     * 
+     * @param list
+     *            to sort
+     * @return sorted list
+     */
+    public LinkedList<String> sortAlpha(LinkedList<String> list) {
+        for (int i = 1; i < list.size(); i++) {
+            String s = list.get(i);
+            int j = i - 1;
+            while (j >= 0 && s.compareTo(list.get(j)) < 0) {
+                String y = list.get(j + 1);
+                list.set(j + 1, list.get(j));
+                list.set(j, y);
+                j--;
+            }
+            String y = list.get(j + 1);
+            y = s;
+        }
+        return list;
     }
 
 
